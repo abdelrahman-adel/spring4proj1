@@ -22,7 +22,7 @@ public class BooksController {
 	@GetMapping("/books")
 	public List<Book> getAllBooks() {
 		logger.info("in getAllBooks()");
-		List<Book> books = getFakeBooks(5);
+		List<Book> books = getFakeBooks(2);
 		return books;
 	}
 
