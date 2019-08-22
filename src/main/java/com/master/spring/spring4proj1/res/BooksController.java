@@ -8,6 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * This is a rest controller, this is using spring-boot-starter-web
+ * 
+ * @author Abd-Elrahman Adel
+ *
+ */
 @RestController
 public class BooksController {
 
