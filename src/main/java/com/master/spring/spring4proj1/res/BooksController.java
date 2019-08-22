@@ -16,7 +16,7 @@ public class BooksController {
 	@GetMapping("/books")
 	public List<Book> getAllBooks() {
 		logger.info("in getAllBooks()");
-		List<Book> books = getFakeBooks(1);
+		List<Book> books = getFakeBooks(5);
 		return books;
 	}
 
@@ -24,7 +24,7 @@ public class BooksController {
 		logger.info("in getFakeBooks({})", count);
 		List<Book> books = new ArrayList<>();
 		for (int i = 1; i <= count; i++) {
-			books.add(new Book(i, "Sowah fe donya Allah " + i, "Mostafa Mahmoud " + i));
+			books.add(Book.getInstance());
 		}
 		return books;
 	}
