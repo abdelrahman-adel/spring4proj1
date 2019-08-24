@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,7 +24,13 @@ public class BooksController {
 	public List<Book> getAllBooks() {
 		logger.info("in getAllBooks()");
 		List<Book> books = getFakeBooks(2);
+		logger.info("finished getAllBooks()");
 		return books;
+	}
+
+	@GetMapping("/getBook")
+	public Book getBook(@RequestParam("bookId") int bookId) {
+		return Book.getInstance(bookId);
 	}
 
 	private List<Book> getFakeBooks(int count) {

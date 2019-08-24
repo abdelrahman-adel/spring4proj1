@@ -1,8 +1,12 @@
 package com.master.spring.spring4proj1.res;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
 
 	private static long COUNT = 0;
+	private static List<Book> booksPool = new ArrayList<>();
 
 	private long id;
 	private String name;
@@ -37,6 +41,19 @@ public class Book {
 	}
 
 	public static Book getInstance() {
-		return new Book(COUNT, "Sowah fe donya Allah " + COUNT++, Author.getInstance());
+		Book book = new Book(COUNT, "Sowah fe donya Allah " + COUNT++, Author.getInstance());
+		booksPool.add(book);
+		return book;
+	}
+
+	public static Book getInstance(int id) {
+		for (Book book : booksPool) {
+			if (id == book.getId()) {
+				return book;
+			}
+		}
+		Book book = new Book(id, "Sowah fe donya Allah " + id, Author.getInstance(id));
+		booksPool.add(book);
+		return book;
 	}
 }
