@@ -30,6 +30,7 @@ public class BooksController {
 
 	@GetMapping("/getBook")
 	public Book getBook(@RequestParam("bookId") int bookId) {
+		logger.info("in getAllBooks({})", bookId);
 		return Book.getInstance(bookId);
 	}
 
